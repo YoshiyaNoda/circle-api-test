@@ -135,7 +135,9 @@ return [
     */
 
     'providers' => [
-
+        // ----debug用------
+        Barryvdh\Debugbar\ServiceProvider::class,
+        // --------------------
         /*
          * Laravel Framework Service Providers...
          */
@@ -189,7 +191,9 @@ return [
     */
 
     'aliases' => [
-
+        // ------debug用-----
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        // ------------------
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
