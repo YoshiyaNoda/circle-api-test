@@ -21,6 +21,8 @@ class OAuthTestController extends Controller
 
             return redirect("http://localhost:8080");
         } catch(\Exception $e) {
+            \Log::info('oauth error');
+            \Log::info($e);
             $message = "authentication failed !!";
             return redirect("http://localhost:8000");
         }
