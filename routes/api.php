@@ -17,8 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['api'])->group(function() {
+Route::middleware(['api', 'session'])->group(function() {
     Route::get('/testmsg', function() {
         return 'This is Laravel';
     });
+    Route::get('oauth-test', 'OAuthTestController@test');
 });
