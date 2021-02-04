@@ -22,5 +22,5 @@ Route::middleware(['api', 'session'])->group(function() {
         return 'This is Laravel';
     });
     Route::get('oauth-test', 'OAuthTestController@test');
-    Route::get('auth/google/callback', 'OAuthTestController@handleProviderCallback');
+    Route::get('auth/{provider}/callback', 'OAuthTestController@handleProviderCallback');
 });

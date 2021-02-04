@@ -10,21 +10,19 @@ class OAuthTestController extends Controller
     public function test() {
         return Socialite::driver('google')->redirect();
     }
-    public function handleProviderCallback($provider = 'google') {
+    public function handleProviderCallback($provider) {
+
         try {
-            $providerUser = Socialite::with('provider')->user();
+            $providerUser = Socialite::with($provider)->user();
             $email = $providerUser->getEmail() ?? null;
             $providerId = $providerUser->getId();
-            // if($email) {
 
-            // }
-
-            return redirect("http://localhost:8080");
+            // return redirect("http://localhost:8080/#".$providerUser->token);
+            $msg = $providerUser->token;
+            return view('debug', compact('msg'));
         } catch(\Exception $e) {
-            \Log::info('oauth error');
-            \Log::info($e);
-            $message = "authentication failed !!";
-            return redirect("http://localhost:8000");
+            $msg = "authentication failed !!";
+            return view('debug', compact('msg'));
         }
     }
 }
