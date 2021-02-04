@@ -22,7 +22,7 @@ class OAuthTestController extends Controller
             return redirect("http://localhost:8080");
         } catch(\Exception $e) {
             $message = "authentication failed !!";
-            return redirect("http://localhost:8080");
+            return redirect("http://localhost:8000");
         }
     }
 }
